@@ -9,14 +9,15 @@ import { followaccts } from "./follow.js";
 import { followback } from "./followback.js";
 import { enableadult } from "./enableadult.js";
 
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+async function auto() {
+    try {
+await newacct();
+await followaccts();
+await followback();
+enableadult();
+    } catch (error) {
+        console.error('Error')
+    }
 }
 
-newacct();
-await delay(2000);
-followaccts();
-await delay(4000);
-followback();
-await delay(5000);
-enableadult();
+auto();
