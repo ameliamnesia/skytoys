@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 import process from 'node:process';
 import * as fs from 'node:fs';
 dotenv.config();
-async function followaccts() {
+export async function followaccts() {
     await agent.login({
         identifier: process.env.BSKY_USERNAME,
         password: process.env.BSKY_PASSWORD,

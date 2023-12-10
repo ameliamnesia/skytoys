@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 import process from 'node:process';
 //import * as fs from 'node:fs';
 dotenv.config();
-async function enableadult() {
+export async function enableadult() {
     //const fs = require('fs')
     //const contents = fs.readFileSync('./handles.txt', 'utf-8').trim()   
     //const existing = contents.split(/\r?\n/)

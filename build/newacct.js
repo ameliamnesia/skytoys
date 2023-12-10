@@ -5,7 +5,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 import * as dotenv from 'dotenv';
 import process from 'node:process';
 dotenv.config();
-async function newacct() {
+export async function newacct() {
     await agent.createAccount({
         email: process.env.NEWEMAIL,
         password: process.env.NEWPW,

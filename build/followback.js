@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 import process from 'node:process';
 import * as fs from 'node:fs';
 dotenv.config();
-async function followback() {
+export async function followback() {
     const filename = './handles.txt';
     const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE });
     let newdid = didstring.data.did;
