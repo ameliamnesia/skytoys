@@ -10,7 +10,7 @@ this is a collection of scripts that will create bluesky accounts, allow them to
 
 ## dependency installation
 ```
-npm i -g --save-dev typescript run-func @types/node @types/dotenv 
+npm i -g --save-dev typescript @types/node @types/dotenv 
 npm i -g --save dotenv @atproto/api
 npm i -g ts-node
 ```
@@ -39,7 +39,7 @@ npm i -g ts-node
 
 _create account specified in **.env**_
 ```*.sh-session
-   npm run newacct
+npm run newacct
 ```
 _follow accounts from **did.txt**_
 ```*.sh-session
