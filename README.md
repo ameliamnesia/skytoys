@@ -37,18 +37,27 @@ npm i -g ts-node
 <details>
 <summary> run scripts</summary>
 
+_create account specified in **.env**_
 ```*.sh-session
    npm run newacct
-      create account specified in .env
-   npm run follow
-      follow accounts from did.txt
-   npm run followback
-      log in to accounts in handle.txt, follow NEWHANDLE in .env
-   npm run enableadult
-      log into new account from .env, enable adult content
-   npm run auto
-      run all scripts
 ```
+_follow accounts from **did.txt**_
+```*.sh-session
+   npm run follow
+```
+_log in to accounts in **handle.txt**, follow **NEWHANDLE** in **.env**_
+```*.sh-session
+   npm run followback
+```
+_log into new account from **.env**, enable adult content_
+```*.sh-session
+   npm run enableadult
+```
+_run all scripts_
+```*.sh-session
+   npm run auto
+```
+
 <!-- 
 **or to run the scripts themselves**
 
