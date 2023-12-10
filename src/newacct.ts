@@ -7,16 +7,20 @@ import process from 'node:process';
 dotenv.config();
 
 export async function newacct() {
-        await agent.createAccount({
-            email: process.env.NEWEMAIL!,
-            password: process.env.NEWPW!,
-            handle: process.env.NEWHANDLE!,
-            inviteCode: process.env.NEWCODE!,
-          })
-          await delay(2000);
-          const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
-          let newdid = didstring.data.did
-          console.log('created ' + process.env.NEWHANDLE + ' with DID ' + newdid);
+  try {
+    await agent.createAccount({
+     email: process.env.NEWEMAIL!,
+      password: process.env.NEWPW!,
+      handle: process.env.NEWHANDLE!,
+      inviteCode: process.env.NEWCODE!,
+    })
+    await delay(2000);
+    const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
+    let newdid = didstring.data.did
+    console.log('created ' + process.env.NEWHANDLE + ' with DID ' + newdid);
+  } catch (error) {
+    console.error('error creating account')
+  }
 }
-newacct();
+//newacct();
 

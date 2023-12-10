@@ -5,29 +5,35 @@ import * as dotenv from 'dotenv';
 import process from 'node:process';
 import * as fs from 'node:fs';
 dotenv.config();
+const handles_file = './handles.txt';
+const handles_list = fs.readFileSync(handles_file, 'utf-8').trim();
+const existing = handles_list.split(/\r?\n/);
 export async function followback() {
-    const filename = './handles.txt';
     const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE });
-    let newdid = didstring.data.did;
-    async function readfollow() {
-        const contents = fs.readFileSync(filename, 'utf-8').trim();
-        const existing = contents.split(/\r?\n/);
-        for (let i = 0; i < existing.length; i++) {
-            await agent.login({
-                identifier: existing[i],
-                password: process.env.BSKY_PASSWORD,
-            });
-            await agent.follow(newdid);
-            //console.log(existing[i]);
+    try {
+        async function readfollow() {
+            let newdid = didstring.data.did;
+            for (let i = 0; i < existing.length; i++) {
+                await agent.login({
+                    identifier: existing[i],
+                    password: process.env.BSKY_PASSWORD,
+                });
+                await agent.follow(newdid);
+                //console.log(existing[i]);
+            }
+            fs.appendFileSync(handles_file, process.env.NEWHANDLE + "\r\n");
         }
-        fs.appendFileSync(filename, process.env.NEWHANDLE + "\r\n");
+        if (fs.existsSync(handles_file)) {
+            readfollow();
+        }
+        else {
+            fs.writeFileSync(handles_file, "", { flag: 'wx+' });
+            readfollow();
+        }
+        console.log('followed ', process.env.NEWHANDLE);
     }
-    if (fs.existsSync(filename)) {
-        readfollow();
-    }
-    else {
-        fs.writeFileSync(filename, "", { flag: 'wx+' });
-        readfollow();
+    catch (error) {
+        console.error('error following ', process.env.NEWHANDLE);
     }
 }
-followback();
+//followback();

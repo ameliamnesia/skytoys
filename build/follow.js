@@ -5,29 +5,35 @@ import * as dotenv from 'dotenv';
 import process from 'node:process';
 import * as fs from 'node:fs';
 dotenv.config();
+const dids_file = './did.txt';
+const did_list = fs.readFileSync(dids_file, 'utf-8').trim();
+const accts = did_list.split(/\r?\n/);
 export async function followaccts() {
-    await agent.login({
-        identifier: process.env.BSKY_USERNAME,
-        password: process.env.BSKY_PASSWORD,
-    });
-    const filename = './did.txt';
     const didstring = await agent.resolveHandle({ handle: process.env.BSKY_USERNAME });
-    let newdid = didstring.data.did;
-    async function readfollow() {
-        const contents = fs.readFileSync(filename, 'utf-8').trim();
-        const accts = contents.split(/\r?\n/);
-        for (let i = 0; i < accts.length; i++) {
-            await agent.follow(accts[i]);
-            //console.log(accts[i]);
+    try {
+        await agent.login({
+            identifier: process.env.BSKY_USERNAME,
+            password: process.env.BSKY_PASSWORD,
+        });
+        let newdid = didstring.data.did;
+        async function readfollow() {
+            for (let i = 0; i < accts.length; i++) {
+                await agent.follow(accts[i]);
+                //console.log(accts[i]);
+            }
+            fs.appendFileSync(dids_file, newdid + "\r\n");
         }
-        fs.appendFileSync(filename, newdid + "\r\n");
+        if (fs.existsSync(dids_file)) {
+            readfollow();
+        }
+        else {
+            fs.writeFileSync(dids_file, "", { flag: 'wx+' });
+            readfollow();
+        }
+        console.log('followed accounts in did.txt');
     }
-    if (fs.existsSync(filename)) {
-        readfollow();
-    }
-    else {
-        fs.writeFileSync(filename, "", { flag: 'wx+' });
-        readfollow();
+    catch (error) {
+        console.error('error following existing accounts');
     }
 }
-followaccts();
+//followaccts();

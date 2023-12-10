@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "auto": "node ./build/index.js",
-    "newacct": "node ./build/newacct.js",
-    "follow": "node ./build/follow.js",
-    "followback": "node ./build/followback.js",
-    "enableadult": "node ./build/enableadult.js"
+    "newacct": "node ./build/handlers/newacct_handler.js",
+    "follow": "node ./build/handlers/follow_handler.js",
+    "followback": "node ./build/handlers/followback_handler.js",
+    "enableadult": "node ./build/handlers/enable_handler.js"
   },
   "type": "module",
   "keywords": [],
