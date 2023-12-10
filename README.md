@@ -17,7 +17,7 @@ npm i -g ts-node
 
 ## usage
 > [!NOTE]
->for creating new accounts you can just use the same password for each account create. currently this is the easiest way to run the tool with many accounts due to the way it iterates to log in and follow back.
+>for creating new accounts you can just use the same password for each account created. currently this is the easiest way to run the tool with many accounts due to the way it iterates to log in and follow back.
 
 <details>
 <summary> configure environment </summary>
