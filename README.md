@@ -35,6 +35,10 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 <details>
 <summary> run scripts</summary>
 
+* **run complete process**
+```*.sh-session
+npm run auto
+```
 * **create account specified in _.env_**
 ```*.sh-session
 npm run newacct
@@ -51,11 +55,10 @@ npm run followback
 ```*.sh-session
 npm run enableadult
 ```
-* **run all scripts**
+* **log into ALL accounts from _handles.txt_, enable adult content**
 ```*.sh-session
-npm run auto
+npm run bulkenable
 ```
-
 <!-- 
 **or to run the scripts themselves**
 
