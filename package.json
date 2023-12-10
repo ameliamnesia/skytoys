@@ -8,7 +8,8 @@
     "newacct": "node ./build/handlers/newacct_handler.js",
     "follow": "node ./build/handlers/follow_handler.js",
     "followback": "node ./build/handlers/followback_handler.js",
-    "enableadult": "node ./build/handlers/enable_handler.js"
+    "enableadult": "node ./build/handlers/enable_handler.js",
+    "bulkenable": "node ./build/handlers/bulkenable_handler.js"
   },
   "type": "module",
   "keywords": [],
