@@ -53,9 +53,9 @@ npm run followback
 ```*.sh-session
 npm run enableadult
 ```
-### _run all scripts_
+***run all scripts_***
 ```*.sh-session
-nspm run auto
+npm run auto
 ```
 
 <!-- 
