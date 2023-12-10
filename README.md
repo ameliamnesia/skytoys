@@ -38,6 +38,17 @@ npm i -g ts-node
 <summary> run scripts</summary>
 
 ```*.sh-session
+   npm run newacct - create account
+      create account
+   npm run follow - follow accounts from did.txt
+
+   npm run followback - log in to accounts in handle.txt, follow NEWHANDLE in .env
+
+   npm run enableadult
+```
+**or to run the scripts themselves**
+
+```*.sh-session
    node build/newacct.js
 
    node build/follow.js

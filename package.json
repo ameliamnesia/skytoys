@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./build/test.js"
+    "auto": "node ./build/index.js",
+    "newacct": "node ./build/newacct.js",
+    "follow": "node ./build/follow.js",
+    "followback": "node ./build/followback.js",
+    "enableadult": "node ./build/enableadult.js"
   },
   "type": "module",
   "keywords": [],
