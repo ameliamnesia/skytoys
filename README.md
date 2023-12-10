@@ -10,9 +10,7 @@ this is a collection of scripts that will create bluesky accounts, allow them to
 
 ## dependency installation
 ```
-npm i -g --save-dev typescript @types/node @types/dotenv 
-npm i -g --save dotenv @atproto/api
-npm i -g ts-node
+npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 ```
 
 ## usage
