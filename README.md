@@ -13,7 +13,7 @@ this is a collection of scripts that will create bluesky accounts, allow them to
 npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 ```
 
-## usage
+## configure
 > [!NOTE]
 >for creating new accounts you can just use the same password for each account created. currently this is the easiest way to run the tool with many accounts due to the way it iterates to log in and follow back.
 
@@ -32,6 +32,7 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
   * NEWCODE="bsky-social-**_xxxxx-xxxxx_**"
 </details>
 
+## usage
 <details>
 <summary> run scripts</summary>
 
@@ -59,25 +60,13 @@ npm run enableadult
 ```*.sh-session
 npm run bulkenable
 ```
-<!-- 
-**or to run the scripts themselves**
-
-```*.sh-session
-   node build/newacct.js
-
-   node build/follow.js
-
-   node build/followback.js
-
-   node build/enableadult.js
-``` -->
 </details>
 
 <details>
 <summary> additional information </summary>
 
-* follow.js will create a _did.txt_ and add the logged in user defined in **BSKY_USERNAME**
+* **_npm run follow_** will create a _did.txt_ and add the logged in user defined in **BSKY_USERNAME**
   * this is to ensure the account that you are following _from_ gets added
-* followback.js will create _handles.txt_ and add the user defined in **NEWHANDLE**
+* **_npm run followback_** will create _handles.txt_ and add the user defined in **NEWHANDLE**
   * this is to ensure your new account is added in case you have not changed **BSKY_USERNAME**
   </details>
