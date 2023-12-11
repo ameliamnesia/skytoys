@@ -12,7 +12,7 @@ export async function enableadult() {
             identifier: process.env.NEWHANDLE,
             password: process.env.BSKY_PASSWORD,
         });
-        await agent.setPersonalDetails({ birthDate: '1987-01-11T05:44:04.395087Z' });
+        await agent.setPersonalDetails({ birthDate: process.env.BIRTHDAY });
         await agent.setAdultContentEnabled(true);
         console.log('preferences set for ', process.env.NEWHANDLE);
     }
@@ -28,7 +28,7 @@ export async function enableadult_bulk() {
             identifier: existing[i],
             password: process.env.BSKY_PASSWORD,
         });
-        await agent.setPersonalDetails({ birthDate: '1987-01-11T05:44:04.395087Z' });
+        await agent.setPersonalDetails({ birthDate: process.env.NEWHANDLE });
         await agent.setAdultContentEnabled(true);
     }
 }
