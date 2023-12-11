@@ -63,6 +63,7 @@ npm run bulkenable
 </details>
 
 | :exclamation:  **_npm run follow_** will create a _did.txt_ and add the logged in user defined in **BSKY_USERNAME**   |
+|                this is to ensure the account that you are following _from_ gets added                                 |
 |-----------------------------------------------------------------------------------------------------------------------|
 
 <details>
