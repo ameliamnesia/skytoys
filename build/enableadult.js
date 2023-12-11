@@ -32,4 +32,3 @@ export async function enableadult_bulk() {
         await agent.setAdultContentEnabled(true);
     }
 }
-//enableadult();

@@ -36,4 +36,3 @@ export async function followback() {
         console.error('error following ', process.env.NEWHANDLE);
     }
 }
-//followback();
