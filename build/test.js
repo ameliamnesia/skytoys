@@ -13,19 +13,6 @@ let newdid = didstring.data.did
 console.log(newdid);
 
 
-const filename = 'handles.txt'
 
-if (fs.existsSync(filename)) {
-    const contents = fs.readFileSync(filename, 'utf-8').trim()
-    const existing = contents.split(/\r?\n/)
-    for (let i = 0; i < existing.length; i++) {
-    console.log(existing[i]);
-    }
-} else {
-    fs.writeFileSync(filename, "", {flag: 'wx+'});
-    fs.appendFileSync(filename, "helloc \r\n");
-    fs.appendFileSync(filename, "hsfdsfsdf \r\n");
-    console.log('created file ' + filename);
-}
 */
 export {};
