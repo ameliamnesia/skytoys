@@ -37,6 +37,7 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 > **_npm run follow_** will create a _did.txt_ and add the logged in user defined in **BSKY_USERNAME** to ensure the account that you are following _from_ gets added
 >
 > test
+
 > [!IMPORTANT]
 > **_npm run followback_** will create _handles.txt_ and add the user defined in **NEWHANDLE** to ensure your new account is added in case you have not changed **BSKY_USERNAME**
 
