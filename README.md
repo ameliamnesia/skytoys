@@ -37,6 +37,7 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
   * NEWPW="_password for new account_"
   * NEWHANDLE="**_mynewaccount_**.bsky.social"
   * NEWCODE="bsky-social-**_xxxxx-xxxxx_**"
+* change the default birthday if you wish
 </details>
 
 ## usage
