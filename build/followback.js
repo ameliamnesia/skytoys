@@ -10,6 +10,7 @@ const handles_list = fs.readFileSync(handles_file, 'utf-8').trim();
 const existing = handles_list.split(/\r?\n/);
 export async function followback() {
     const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE });
+    const count_handles = existing.length;
     try {
         async function readfollow() {
             let newdid = didstring.data.did;
@@ -30,7 +31,7 @@ export async function followback() {
             fs.writeFileSync(handles_file, "", { flag: 'wx+' });
             readfollow();
         }
-        console.log('followed ', process.env.NEWHANDLE);
+        console.log('followed ', process.env.NEWHANDLE, ' from ', count_handles, 'accounts');
     }
     catch (error) {
         console.error('error following ', process.env.NEWHANDLE);

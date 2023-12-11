@@ -12,6 +12,7 @@ const existing = handles_list.split(/\r?\n/)
 
 export async function followback() {
     const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
+    const count_handles = existing.length;
     try {
         async function readfollow() {
             let newdid = didstring.data.did
@@ -23,7 +24,8 @@ export async function followback() {
                 await agent.follow(newdid);
             //console.log(existing[i]);
         }
-        fs.appendFileSync(handles_file, process.env.NEWHANDLE! + "\r\n");        
+        fs.appendFileSync(handles_file, process.env.NEWHANDLE! + "\r\n");
+        console.log('added', process.env.NEWHANDLE!, 'to handles file');        
         }
         if (fs.existsSync(handles_file)) {
             readfollow();
@@ -31,7 +33,7 @@ export async function followback() {
             fs.writeFileSync(handles_file, "", {flag: 'wx+'});
             readfollow();
         }
-        console.log('followed ', process.env.NEWHANDLE!)
+        console.log('followed', process.env.NEWHANDLE!, 'from', count_handles, 'accounts')
     } catch (error) {
         console.error('error following ', process.env.NEWHANDLE!)
     }

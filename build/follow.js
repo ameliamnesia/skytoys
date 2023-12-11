@@ -10,6 +10,7 @@ const did_list = fs.readFileSync(dids_file, 'utf-8').trim();
 const accts = did_list.split(/\r?\n/);
 export async function followaccts() {
     const didstring = await agent.resolveHandle({ handle: process.env.BSKY_USERNAME });
+    const count_did = accts.length;
     try {
         await agent.login({
             identifier: process.env.BSKY_USERNAME,
@@ -30,7 +31,7 @@ export async function followaccts() {
             fs.writeFileSync(dids_file, "", { flag: 'wx+' });
             readfollow();
         }
-        console.log('followed accounts in did.txt');
+        console.log('followed ', count_did, ' accounts in did.txt');
     }
     catch (error) {
         console.error('error following existing accounts');
