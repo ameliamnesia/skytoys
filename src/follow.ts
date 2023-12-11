@@ -33,7 +33,7 @@ export async function followaccts() {
       fs.writeFileSync(dids_file, "", {flag: 'wx+'});
       readfollow();
     }
-    console.log('followed', count_did, 'accounts in did.txt');
+    console.log(process.env.BSKY_USERNAME!, 'followed', count_did, 'accounts in did.txt');
   } catch (error) {
     console.error('error following existing accounts');
   }

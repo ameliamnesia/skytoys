@@ -23,6 +23,7 @@ export async function followback() {
                 //console.log(existing[i]);
             }
             fs.appendFileSync(handles_file, process.env.NEWHANDLE + "\r\n");
+            console.log('added', process.env.NEWHANDLE, 'to handles file');
         }
         if (fs.existsSync(handles_file)) {
             readfollow();
@@ -31,7 +32,7 @@ export async function followback() {
             fs.writeFileSync(handles_file, "", { flag: 'wx+' });
             readfollow();
         }
-        console.log('followed ', process.env.NEWHANDLE, ' from ', count_handles, 'accounts');
+        console.log('followed', process.env.NEWHANDLE, 'from', count_handles, 'accounts');
     }
     catch (error) {
         console.error('error following ', process.env.NEWHANDLE);
