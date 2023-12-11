@@ -2,7 +2,7 @@
 this is a collection of scripts that will create bluesky accounts, allow them to follow each other, follow back, and enable adult content
 
 ## requirements
-* nodejs
+* nodejs/npm
 * typescript
 * ts-node
 * dotenv
@@ -14,7 +14,7 @@ to check your node and npm versions use
 node -v
 npm -v
 ```
-if node and npm are not installed, you can find the installers at https://nodejs.org/en/download/
+if node and npm are not installed, you can find the installer at https://nodejs.org/en/download/
 
 ```*.sh-session
 npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
