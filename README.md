@@ -14,7 +14,7 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 ```
 
 ## configure
-> [!NOTE]
+> [!TIP]
 >for creating new accounts you can just use the same password for each account created. currently this is the easiest way to run the tool with many accounts due to the way it iterates to log in and follow back.
 
 <details>
@@ -61,6 +61,9 @@ npm run enableadult
 npm run bulkenable
 ```
 </details>
+
+| :exclamation:  **_npm run follow_** will create a _did.txt_ and add the logged in user defined in **BSKY_USERNAME**   |
+|-----------------------------------------------------------------------------------------------------------------------|
 
 <details>
 <summary> additional information </summary>
