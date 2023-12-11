@@ -1,4 +1,4 @@
-# bsky-toys
+# skytoys
 this is a collection of scripts that will create bluesky accounts, allow them to follow each other, follow back, and enable adult content
 
 ## requirements
