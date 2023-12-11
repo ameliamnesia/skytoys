@@ -11,9 +11,6 @@ const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
 let newdid = didstring.data.did
 
 console.log(newdid); 
-
-
-
 */
 
 
