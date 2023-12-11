@@ -10,7 +10,6 @@ this is a collection of scripts that will create bluesky accounts, allow them to
 
 ## dependency installation
 to check your node and npm versions use
-
 if node and npm are not installed, you can find the installer at https://nodejs.org/en/download/
 ```*.sh-session
 node -v
