@@ -22,5 +22,4 @@ export async function newacct() {
     console.error('error creating account')
   }
 }
-//newacct();
 

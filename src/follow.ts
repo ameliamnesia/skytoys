@@ -36,4 +36,3 @@ export async function followaccts() {
     console.error('error following existing accounts');
   }
 }
-//followaccts();
