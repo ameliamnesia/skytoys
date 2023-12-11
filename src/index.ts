@@ -19,14 +19,13 @@ const did_list = fs.readFileSync(dids_file, 'utf-8').trim()
 const accts = did_list.split(/\r?\n/)
 const handles_list = fs.readFileSync(handles_file, 'utf-8').trim()            
 const existing = handles_list.split(/\r?\n/)
-//const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
 
 async function auto() {
     try {
-await newacct();
-await followaccts();
-await followback();
-await enableadult();
+        await newacct();
+        await followaccts();
+        await followback();
+        await enableadult();
     } catch (error) {
         console.error('Error')
     }
