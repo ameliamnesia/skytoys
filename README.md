@@ -47,13 +47,13 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 >
 > **_npm run followback_** will create _handles.txt_ and add the user defined in **NEWHANDLE** to ensure your new account is added in case you have not changed **BSKY_USERNAME**
 
-<details>
-<summary> run scripts</summary>
-
 * **run complete process**
 ```*.sh-session
 npm run auto
 ```
+<details>
+<summary> run individual scripts</summary>
+
 * **create account specified in _.env_**
 ```*.sh-session
 npm run newacct
@@ -73,6 +73,10 @@ npm run enableadult
 * **log into ALL accounts from _handles.txt_, enable adult content**
 ```*.sh-session
 npm run bulkenable
+```
+* **change handle (_BLUESKY_USERNAME_) in _.env_ to (_CHANGEHANDLE_)**
+```*.sh-session
+npm run changehandle
 ```
 </details>
 

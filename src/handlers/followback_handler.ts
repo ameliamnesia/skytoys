@@ -6,7 +6,7 @@ import process from 'node:process';
 import * as fs from 'node:fs';
 dotenv.config();
 
-const handles_file = '../handles.txt'
+const handles_file = './handles.txt'
 const handles_list = fs.readFileSync(handles_file, 'utf-8').trim()            
 const existing = handles_list.split(/\r?\n/)
 
