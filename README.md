@@ -47,7 +47,7 @@ npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
 >
 > **_npm run followback_** will create _handles.txt_ and add the user defined in **NEWHANDLE** to ensure your new account is added in case you have not changed **BSKY_USERNAME**
 
-* **run complete process**
+### **run complete process**
 ```*.sh-session
 npm run auto
 ```
