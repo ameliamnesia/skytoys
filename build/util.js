@@ -1,0 +1,3 @@
+export async function readfiles() {
+    const dids_file = './did.txt';
+}

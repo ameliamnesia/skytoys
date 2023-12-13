@@ -22,7 +22,7 @@ export async function updatelist(handles_file: string, oldhandle: string, newhan
     try {
         //update handles.txt
         const listdata = fs.readFileSync(handles_file, 'utf8');
-        const updatedHandle = listdata.replace(new RegExp(oldhandle, 'g'), newhandle);
+        const updatedHandle = listdata.replaceAll(oldhandle, newhandle);
         fs.writeFileSync(handles_file, updatedHandle, 'utf8');
         console.log('updated', oldhandle, 'to', newhandle, 'in handles.txt')
     } catch {
@@ -33,7 +33,7 @@ export async function updateenv(env_file: string, oldhandle: string, newhandle: 
     try {
         //update .env
         const envdata = fs.readFileSync(env_file, 'utf8');
-        const envHandle = envdata.replace(oldhandle, newhandle);
+        const envHandle = envdata.replaceAll(oldhandle, newhandle);
         fs.writeFileSync(env_file, envHandle, 'utf8');
         console.log('updated', oldhandle, 'to', newhandle, 'in .env');
     } catch {
