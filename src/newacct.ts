@@ -17,7 +17,7 @@ export async function newacct() {
     await delay(2000);
     const didstring = await agent.resolveHandle({ handle: process.env.NEWHANDLE! });
     let newdid = didstring.data.did
-    console.log('created' + process.env.NEWHANDLE + 'with DID' + newdid);
+    console.log('created ' + process.env.NEWHANDLE + ' with DID ' + newdid);
   } catch (error) {
     console.error('error creating account')
   }
