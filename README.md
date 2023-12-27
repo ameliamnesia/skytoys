@@ -80,4 +80,9 @@ npm run changehandle
 ```
 </details>
 
+### **view posts/threads**
+```*.sh-session
+npm run viewpost https://bsky.app/profile/{bluesky handle}/post/{url}
+```
+
 

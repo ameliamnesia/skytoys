@@ -1,6 +1,6 @@
 {
   "name": "skytoys",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "followback": "node ./build/handlers/followback_handler.js",
     "enableadult": "node ./build/handlers/enable_handler.js",
     "bulkenable": "node ./build/handlers/bulkenable_handler.js",
-    "changehandle": "node ./build/handlers/updatehandle_handler.js"
+    "changehandle": "node ./build/handlers/updatehandle_handler.js",
+    "viewpost": "node ./build/postview.js"
   },
   "type": "module",
   "keywords": [],

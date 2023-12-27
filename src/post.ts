@@ -1,23 +1,25 @@
 import bsky from '@atproto/api';
+import { AtpSessionData, AtpPersistSessionHandler, AtpSessionEvent } from '@atproto/api';
 const { BskyAgent } = bsky;
-const agent = new BskyAgent({ service: 'https://bsky.social', });
+import { agent } from './util.js';
 import * as dotenv from 'dotenv';
-
 dotenv.config();
-const post_text = "typescript test 2"
+import { util_login } from './util.js';
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-async function skeet() {
-    try {
-    await agent.login({
-        identifier: process.env.BSKY_USERNAME!,
-        password: process.env.BSKY_PASSWORD!,
-    });
-    await agent.post({
-        text: post_text
-     });
-     return "posted successfully";
+const post_text = "typescript test 4"
+export async function skeet() {
+    try { 
+            await agent.post({
+            text: post_text
+            });
+            console.log('posted');
+            return "posted successfully";
     } catch (error) {
-        return "Function failed to execute.";
+        //return "Function failed to execute.";
+        console.log('fail', error);
     }
 } 
-skeet();
+await util_login();
+await skeet();
+
