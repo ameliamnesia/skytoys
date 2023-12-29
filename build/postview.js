@@ -25,7 +25,7 @@ class Skeet {
         this.user_did = agent.resolveHandle({ handle: this.bskyhandle });
         //this.postjson = this.postfetch.json();
     }
-    displaypost(handle, timestamp, text, quote) {
+    displaypost(handle, timestamp, text, quote, displayname) {
         let readable = new Date(timestamp);
         let date = readable.toDateString();
         let time = readable.toLocaleTimeString('en-US');
@@ -38,6 +38,7 @@ class Skeet {
     }
     async get_profile(returned_did) {
         let profile = await agent.com.atproto.repo.describeRepo({ repo: returned_did });
+        //let display = profile.data
         return profile.data;
     }
     async get_post_json() {
@@ -123,7 +124,7 @@ class Skeet {
                 console.log(`     [external link] \n `, post_has_link.uri);
             }
             this.displaypost(parent_handle, fp.value.createdAt, fp.value.text);
-            let parent_has_media = fr.value.embed;
+            let parent_has_media = fp.value.embed;
             if (parent_has_media) {
                 const getjson = await post.determine_image_embed(fp.value);
                 console.log(getjson);
@@ -132,6 +133,14 @@ class Skeet {
             if (parent_has_link != undefined) {
                 console.log(`     [external link] \n `, post_has_link.uri);
             }
+            /*
+            let parent_is_reply = fp.value.reply
+            if(parent_is_reply) {
+                const newparent = await post.isthreaded(fp.value.reply)
+                console.log(newparent)
+            //console.log(fp.value.reply.parent)
+            }
+            */
             return ' ';
         }
         else {
@@ -162,6 +171,7 @@ if (post_is_reply && typeof post_has_quote != undefined) {
 }
 let split_main = returnedjson.uri.toString().split("/");
 const mainprof = await post.get_profile(split_main[2]);
+//console.log(mainprof)
 let mainhandle = mainprof.handle;
 post.displaypost(mainhandle, returnedjson.value.createdAt, returnedjson.value.text);
 if (post_has_link != undefined) {
