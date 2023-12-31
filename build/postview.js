@@ -85,15 +85,18 @@ class Skeet {
     async embed_is_link(embed_vals) {
         //console.log('embed is link')
         //console.log(embed_vals)
-        console.info(`    ` + (colors.bgBlue(`[external link]`)));
-        console.log(`    title:` + embed_vals.external.title);
-        console.log(`    url:` + embed_vals.external.uri);
+        console.group();
+        console.info(colors.bgBlue(`[external link]`));
+        console.group();
+        console.log(colors.blue(`title: `) + embed_vals.external['title']);
+        console.log(colors.blue(`url: `) + embed_vals.external.uri);
+        console.groupEnd;
     }
     async embed_is_image(embed_vals) {
         console.info(`\n  ` + colors.bgGreen(`[post contains media]`));
         for (let i = 0; i < embed_vals.length; i++) {
             const currentArray = embed_vals[i];
-            console.log(`  description:`, currentArray.alt);
+            console.log(colors.green(`  description:`), currentArray.alt);
         }
         //console.log(`\n`)      
     }
