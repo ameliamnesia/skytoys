@@ -7,6 +7,7 @@ this is a collection of scripts that will create bluesky accounts, allow them to
 * ts-node
 * dotenv
 * atproto module
+* colors
 
 ## dependency installation
 to check your node and npm versions use
@@ -18,7 +19,7 @@ npm -v
 ```
 install dependencies
 ```*.sh-session
-npm i -g typescript ts-node dotenv @atproto/api @types/node @types/dotenv
+npm i -g typescript ts-node dotenv colors @atproto/api @types/node @types/dotenv
 ```
 
 ## configure
