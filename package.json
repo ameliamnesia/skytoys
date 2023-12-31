@@ -11,7 +11,8 @@
     "enableadult": "node ./build/handlers/enable_handler.js",
     "bulkenable": "node ./build/handlers/bulkenable_handler.js",
     "changehandle": "node ./build/handlers/updatehandle_handler.js",
-    "viewpost": "node ./build/postview.js"
+    "viewpost": "node ./build/postview.js",
+    "userinfo": "node ./build/userinfo.js"
   },
   "type": "module",
   "keywords": [],

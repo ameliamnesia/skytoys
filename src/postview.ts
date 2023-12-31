@@ -45,7 +45,7 @@ class Skeet {
         let time = readable.toLocaleTimeString('en-US');
         if(quote === true) {
             console.group();
-            console.log(colors.red(`>>> quoting ${displayname}  (${handle}) \n ${time} on ${date}`));
+            console.log(colors.red(`>>> quoting ${displayname}  (${handle}) \n ${date} at ${time}`));
             console.group();
             console.log(`${text} `)
             console.groupEnd();
@@ -88,7 +88,6 @@ class Skeet {
         console.log(colors.blue(`title: `) + embed_vals.external['title'])
         console.log(colors.blue(`url: `) + embed_vals.external.uri)
         console.groupEnd
-
     }
     public async embed_is_image(embed_vals: any) {
         console.info(`\n  ` + colors.bgGreen(`[post contains media]`))
@@ -111,14 +110,13 @@ class Skeet {
         let quote_embed = 'embed' in quotepost.value;
         if(quote_embed) {
             await qp.get_embed(quotepost.value.embed);
-            }
+        }
     }
     public async embed_is_media_quote(embed_vals: any) {
         await this.embed_is_image(embed_vals.media.images);
         await this.embed_is_quote(embed_vals.record.record)
     }
 }
-
 let mypost = new Skeet(process.argv[2])
 let post_data = await mypost.get_post_json();
 let post_did = await mypost.user_did;

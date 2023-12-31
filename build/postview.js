@@ -42,7 +42,7 @@ class Skeet {
         let time = readable.toLocaleTimeString('en-US');
         if (quote === true) {
             console.group();
-            console.log(colors.red(`>>> quoting ${displayname}  (${handle}) \n ${time} on ${date}`));
+            console.log(colors.red(`>>> quoting ${displayname}  (${handle}) \n ${date} at ${time}`));
             console.group();
             console.log(`${text} `);
             console.groupEnd();

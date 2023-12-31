@@ -85,5 +85,9 @@ npm run changehandle
 ```*.sh-session
 npm run viewpost https://bsky.app/profile/{bluesky handle}/post/{url}
 ```
+### **get user info**
+```*.sh-session
+npm run userinfo {bluesky handle}
+```
 
 
