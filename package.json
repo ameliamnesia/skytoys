@@ -1,7 +1,7 @@
 {
   "name": "skytoys",
   "version": "1.0.2",
-  "description": "",
+  "description": "collection of scripts that mostly automate account creation and setup, but also to change handles and view posts and quote chains",
   "main": "index.js",
   "scripts": {
     "auto": "node ./build/index.js",
