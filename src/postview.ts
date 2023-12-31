@@ -1,13 +1,15 @@
 import bsky, { AppBskyActorGetProfile, AppBskyActorProfile, BskyNS } from '@atproto/api';
 const { BskyAgent } = bsky;
 const agent = new BskyAgent({ service: 'https://bsky.social', });
-const delay = ms => new Promise(res => setTimeout(res, ms));
 import * as dotenv from 'dotenv';
 import process from 'node:process';
 import colors from 'colors';
-import * as fs from 'node:fs';
-import { skeet } from './post.js';
 dotenv.config();
+
+/**** 
+TODO:
+thread, parent, root, reply logic
+****/
 
 class Skeet {
     post_link!: string;
@@ -18,7 +20,7 @@ class Skeet {
     post_id!: string;
     fetchurl!: string;
     postfetch!: any;
-    postjson!: any;
+    postjson?: any;
     postembed?: any;
 
     constructor(post_link: string) {
@@ -29,8 +31,6 @@ class Skeet {
         this.fetchurl = `https://api.bsky.app/xrpc/com.atproto.repo.getRecord?repo=${this.bskyhandle}&collection=app.bsky.feed.post&rkey=${this.post_id}`;
         this.postfetch = fetch(this.fetchurl);
         this.user_did = agent.resolveHandle({ handle: this.bskyhandle })
-        //this.postembed = this.postfetch.value.embed;
-        //this.postjson = this.postfetch.json();
     }
     public async display_post(handle: string, displayname: string, timestamp: string, text: string, quote?: boolean) {
         let readable = new Date(timestamp);
@@ -50,7 +50,6 @@ class Skeet {
             console.log(`${text} `)
             console.groupEnd();
         }
-
     }
     public async get_post_json() {
         const fetch_json = await this.postfetch
@@ -60,9 +59,6 @@ class Skeet {
     public async get_profile(returned_did: string) {
         let profile = await agent.com.atproto.repo.describeRepo({ repo: returned_did })
         let profile_data = profile.data
-        //let display = await agent.com.atproto.repo.getRecord({ repo: returned_did, collection: 'app.bsky.actor.profile', rkey: 'self' })
-        //profile_data: any.displayname = { name: 'dispname', value: display.data.value['displayName'] }
-        //let profile.data.displayname = 
         return profile_data;
     }
     public async get_handle(handle: string) {
@@ -71,8 +67,6 @@ class Skeet {
         return dname;
     }
     public async get_embed(embed_data: any) {
-        //const embed_data = await this.postembed
-        //let embed_vals = embed_data
         if(embed_data.$type == 'app.bsky.embed.external') {
             await this.embed_is_link(embed_data)
         }
@@ -88,8 +82,6 @@ class Skeet {
         return embed_data;
     }
     public async embed_is_link(embed_vals: any) {
-        //console.log('embed is link')
-        //console.log(embed_vals)
         console.group();
         console.info(colors.bgBlue(`[external link]`))
         console.group();
@@ -103,8 +95,7 @@ class Skeet {
         for (let i = 0; i < embed_vals.length; i++) {
             const currentArray = embed_vals[i];
             console.log(colors.green(`  description:`), currentArray.alt);
-          }
-          //console.log(`\n`)      
+          }   
     }
     public async embed_is_quote(embed_vals: any) {
         let embed_uri = embed_vals.uri.toString().split("/");
@@ -127,13 +118,7 @@ class Skeet {
         await this.embed_is_quote(embed_vals.record.record)
     }
 }
-/*
-export async function get_post_json() {
-    const fetch_json = await (await post.postfetch).json()
-    let post_json = fetch_json
-    return post_json;
-}
-*/
+
 let mypost = new Skeet(process.argv[2])
 let post_data = await mypost.get_post_json();
 let post_did = await mypost.user_did;
@@ -143,9 +128,6 @@ let post_handle = post_profile.handle;
 let post_disp_name = await mypost.get_handle(post_handle)
 let has_embed = 'embed' in post_data.value;
 await mypost.display_post(post_handle, post_disp_name, post_data.value.createdAt, post_text)
-//console.log(post_text)
-//console.log(post_did.data.did)
 if(has_embed) {
     await mypost.get_embed(post_data.value.embed);
-    //console.log(post_embed);
     }
